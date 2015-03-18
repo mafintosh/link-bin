@@ -40,7 +40,7 @@ If you save the above file as `app.js` you can then create the following `packag
   },
   "dependencies": {
     "atom-shell": "^0.21.3-1",
-    "link-bin": "^1.0.0",
+    "link-bin": "^1.0.0"
   }
 }
 ```
