@@ -1,0 +1,28 @@
+{
+  "name": "link-bin",
+  "version": "0.0.0",
+  "description": "Generate a bin script with support for local npm dependencies and add it to package.json",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mafintosh/link-bin.git"
+  },
+  "bin": {
+    "link-bin": "./bin.js"
+  },
+  "keywords": [
+    "npm",
+    "install",
+    "hook",
+    "bin",
+    "local"
+  ],
+  "author": "Mathias Buus (@mafintosh)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mafintosh/link-bin/issues"
+  },
+  "homepage": "https://github.com/mafintosh/link-bin"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "my-atom-shell-app",
+  "version": "1.0.0",
+  "description": "my atom-shell app",
+  "scripts": {
+    "install": "link-bin atom-shell app.js"
+  },
+  "dependencies": {
+    "atom-shell": "^0.21.3-1",
+    "link-bin": "^1.0.0",
+  }
+}
