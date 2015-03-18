@@ -49,6 +49,9 @@ If you save the above and run `npm link` in the directory `link-bin` will genera
 file that runs `atom-shell app.js` and add that file to the `bin` entry in `package.json` which means
 that when you run `my-atom-shell-app` afterwards on the command line it will execute the atom-shell app
 
+You can also publish it to npm which means other people will be able to `npm install -g my-atom-shell-app`
+and run `my-atom-shell-app` to execute the atom-shell app
+
 ## License
 
 MIT
