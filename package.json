@@ -4,13 +4,18 @@
   "description": "Generate a bin script with support for local npm dependencies and add it to package.json",
   "main": "index.js",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "standard": "^3.1.2"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/mafintosh/link-bin.git"
   },
   "bin": {
     "link-bin": "./bin.js"
+  },
+  "scripts": {
+    "test": "standard"
   },
   "keywords": [
     "npm",
