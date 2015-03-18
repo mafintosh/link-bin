@@ -1,6 +1,6 @@
 {
   "name": "link-bin",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Generate a bin script with support for local npm dependencies and add it to package.json",
   "main": "index.js",
   "dependencies": {},
