@@ -1,19 +1,20 @@
 # link-bin
 
-Generate a bin script with support for local npm dependencies.
+Make bin scripts work local npm dependencies.
 
 ```
 npm install link-bin
 ```
 
-Can be used as a post-install npm hook to link a shell script with local dependencies to beinstallable
-using npm.
+Should be used as a post-install npm hook
 
 ## Usage
 
 Let's say you wanna put the following atom-shell app on npm
 
 ``` js
+#!/usr/bin/env atom-shell
+
 // this is an atom-shell app that just shows an empty screen
 var app = require('app')
 var BrowserWindow = require('browser-window')
@@ -35,9 +36,9 @@ If you save the above file as `app.js` you can then create the following `packag
   "name": "my-atom-shell-app",
   "version": "1.0.0",
   "description": "my atom-shell app",
-  "bin": "link-bin",
+  "bin": "app.js",
   "scripts": {
-    "install": "link-bin atom-shell app.js"
+    "install": "link-bin"
   },
   "dependencies": {
     "atom-shell": "^0.21.3-1",
@@ -46,12 +47,10 @@ If you save the above file as `app.js` you can then create the following `packag
 }
 ```
 
-If you save the above and run `npm link` in the directory `link-bin` will generate an executable
-file that runs `atom-shell app.js` and and save that as `./link-bin` which means
-that when you run `my-atom-shell-app` afterwards on the command line it will execute the atom-shell app
+If you publish the above program to npm other people will be able to `npm install -g my-atom-shell-app`
+and run `my-atom-shell-app` to execute the atom-shell app (even if they don't have atom-shell installed already)
 
-You can also publish it to npm which means other people will be able to `npm install -g my-atom-shell-app`
-and run `my-atom-shell-app` to execute the atom-shell app
+To test it you can also run `npm install -g .` in the folder where you added the above `app.js` and `package.json` files.
 
 ## License
 
