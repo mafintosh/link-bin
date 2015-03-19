@@ -18,9 +18,29 @@ var getPath = function (cb) {
   loop(__dirname)
 }
 
+var toAbsolute = function (cmd, cb) {
+  cmd = cmd.split(' ')
+
+  var loop = function (i) {
+    if (i === cmd.length) return cb(null, cmd.join(' '))
+    var part = cmd[i]
+    var abs = path.join(process.cwd(), part)
+    fs.exists(abs, function (exists) {
+      if (!exists) return loop(i + 1)
+      cmd[i] = abs
+      loop(i + 1)
+    })
+  }
+
+  loop(0)
+}
+
 module.exports = function (cmd, cb) {
   getPath(function (err, dirs) {
     if (err) return cb(err)
-    cb(null, 'export PATH="' + dirs.join(':') + ':$PATH"' + os.EOL + cmd + os.EOL)
+    toAbsolute(cmd, function (err, cmd) {
+      if (err) return cb(err)
+      cb(null, 'export PATH="' + dirs.join(':') + ':$PATH"' + os.EOL + cmd + ' "$@"' + os.EOL)
+    })
   })
 }
