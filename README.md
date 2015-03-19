@@ -1,6 +1,6 @@
 # link-bin
 
-Generate a bin script with support for local npm dependencies and add it to package.json.
+Generate a bin script with support for local npm dependencies.
 
 ```
 npm install link-bin
