@@ -27,10 +27,11 @@ if (!filenames.length) {
 }
 
 filenames.forEach(function (filename) {
-  link(filename, function (err, bin) {
+  filename = path.resolve(filename)
+  var target = path.join(path.dirname(filename), 'link-bin-' + path.basename(filename))
+  link(filename, target, function (err, bin) {
     if (err) throw err
-    var target = path.join(path.dirname(filename), 'link-bin-' + path.basename(filename))
-    if (!fs.existsSync(target)) fs.rename(filename, target)
+    if (!fs.existsSync(target)) fs.renameSync(filename, target)
     fs.writeFileSync(filename, bin)
     fs.chmodSync(filename, 33261)
   })

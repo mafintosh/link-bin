@@ -18,12 +18,10 @@ var getPath = function (cb) {
   loop(__dirname)
 }
 
-module.exports = function (filename, cb) {
+module.exports = function (filename, target, cb) {
+  if (typeof target === 'function') return module.exports(filename, null, target)
   getPath(function (err, dirs) {
     if (err) return cb(err)
-    fs.realpath(filename, function (err, realname) {
-      if (err) return cb(err)
-      cb(null, 'export PATH="' + dirs.join(':') + ':$PATH"' + os.EOL + realname + ' "$@"' + os.EOL)
-    })
+    cb(null, 'export PATH="' + dirs.join(':') + ':$PATH"' + os.EOL + (target || filename) + ' "$@"' + os.EOL)
   })
 }
