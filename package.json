@@ -1,6 +1,6 @@
 {
   "name": "link-bin",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Make bin scripts work local npm dependencies",
   "main": "index.js",
   "dependencies": {},
