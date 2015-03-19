@@ -32,5 +32,6 @@ filenames.forEach(function (filename) {
     var target = path.join(path.dirname(filename), 'link-bin-' + path.basename(filename))
     if (!fs.existsSync(target)) fs.rename(filename, target)
     fs.writeFileSync(filename, bin)
+    fs.chmodSync(filename, 33261)
   })
 })
