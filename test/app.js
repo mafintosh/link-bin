@@ -1,3 +1,5 @@
+#!/usr/bin/env atom-shell
+
 var app = require('app')
 var BrowserWindow = require('browser-window')
 
